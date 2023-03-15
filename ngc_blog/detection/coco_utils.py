@@ -236,12 +236,12 @@ class CocoDetection(torchvision.datasets.CocoDetection):
         img, target = super(CocoDetection, self).__getitem__(idx)
         image_id = self.ids[idx]
         target = dict(image_id=image_id, annotations=target)
-        target["labels"] = torch.tensor(
-                [self.catIdtoCls[l.item()] for l in target["labels"]], dtype=torch.int64
-            )
         
         if self._transforms is not None:
             img, target = self._transforms(img, target)
+        target["labels"] = torch.tensor(
+                [self.catIdtoCls[l.item()] for l in target["labels"]], dtype=torch.int64
+            )
         return img, target
 
 

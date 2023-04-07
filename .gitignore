@@ -3,6 +3,17 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Misc
+*.tif
+*.png
+*.geojson
+*.json
+train_images/
+train_images_rgb/
+train_images_rgb_no_neg/
+*.zip
+*.tgz
+
 # C extensions
 *.so
 output_dir/

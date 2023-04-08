@@ -65,29 +65,32 @@ def slice(
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--image_dir', type=str, default='/Users/mendeza/data/xview/train_images_rgb/', help='path to rgb train images')
-    parser.add_argument('--dataset_json_path', type=str, default='/Users/mendeza/data/xview/train.json', help='path to train json labels in coco format')
+    parser.add_argument('--train_dataset_json_path', type=str, default='/Users/mendeza/data/xview/train.json', help='path to train json labels in coco format')
+    parser.add_argument('--val_dataset_json_path', type=str, default='/Users/mendeza/data/xview/val.json', help='path to train json labels in coco format')
     parser.add_argument('--slice_size', type=int, default=300, help='size of image slice')
     parser.add_argument('--overlap_ratio', type=float, default=0.2, help='The percentage of overlap each tile will have')
     parser.add_argument('--ignore_negative_samples', nargs='?', const=True, default=True, help='Ignore negative tiles (tiles that have no label)')
     parser.add_argument('--min_area_ratio', type=float, default=0.1, help='Threshold that defines if the new bounding box is X% less than min_area_ratio, throw out label')
-    parser.add_argument('--output_dir', type=str, default='/Users/mendeza/data/xview/train_sliced_no_neg/', help='Directory to export sliced images')
+    parser.add_argument('--output_train_dir', type=str, default='/Users/mendeza/data/xview/train_sliced_no_neg/', help='Directory to export sliced images')
+    parser.add_argument('--output_val_dir', type=str, default='/Users/mendeza/data/xview/val_sliced_no_neg/', help='Directory to export sliced images')
+
     args = parser.parse_args()
     slice(image_dir=args.image_dir,
-                dataset_json_path=args.dataset_json_path,
+                dataset_json_path=args.train_dataset_json_path,
                 slice_size= args.slice_size,
                 overlap_ratio = args.overlap_ratio,
                 ignore_negative_samples = args.ignore_negative_samples,
                 min_area_ratio = args.min_area_ratio,
-                output_dir=args.output_dir)
+                output_dir=args.output_train_dir)
     
     # Helper code if you want to slice validation images
-    # slice(image_dir='/Users/mendeza/data/xview/train_images/',
-    #             dataset_json_path='/Users/mendeza/data/xview/val.json',
-    #             slice_size= 300,
-    #             overlap_ratio = 0.2,
-    #             ignore_negative_samples = True,
-    #             min_area_ratio = 0.1,
-    #             output_dir='/Users/mendeza/data/xview/val_sliced_no_neg/')
+    slice(image_dir=args.image_dir,
+                dataset_json_path=args.val_dataset_json_path,
+                slice_size= args.slice_size,
+                overlap_ratio = args.overlap_ratio,
+                ignore_negative_samples = args.ignore_negative_samples,
+                min_area_ratio = args.min_area_ratio,
+                output_dir=args.output_val_dir)
 
     # slice_xview(image_dir='/Users/mendeza/data/xview/train_images',
     #             dataset_json_path='/Users/mendeza/data/xview/val.json',

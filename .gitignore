@@ -6,12 +6,15 @@ __pycache__/
 # Misc
 *.tif
 *.png
+*.jpg
+*.pth
 *.geojson
 train.json
 val.json
 train_images/
 train_images_rgb/
 train_images_rgb_no_neg/
+val_images_rgb_no_neg/
 *.zip
 *.tgz
 

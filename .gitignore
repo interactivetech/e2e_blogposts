@@ -7,7 +7,8 @@ __pycache__/
 *.tif
 *.png
 *.geojson
-*.json
+train.json
+val.json
 train_images/
 train_images_rgb/
 train_images_rgb_no_neg/

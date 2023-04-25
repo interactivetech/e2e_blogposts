@@ -1,6 +1,8 @@
 name: xview_frxnn_search
-workspace: Andrew
-project: Xview FasterRCNN
+workspace: <WORKSPACE_NAME>
+project: <PROJECT_NAME>
+# workspace: Andrew
+# project: Xview FasterRCNN
 profiling:
  enabled: true
  begin_on_batch: 0

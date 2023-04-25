@@ -1,6 +1,8 @@
 name: resnet_fpn_frcnn_xview_dist_warmup
-workspace: Andrew
-project: Xview_FasterRCNN
+workspace: <WORKSPACE_NAME>
+project: <PROJECT_NAME>
+# workspace: Andrew
+# project: Xview_FasterRCNN
 profiling:
  enabled: true
  begin_on_batch: 0

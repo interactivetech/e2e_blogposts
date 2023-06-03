@@ -1,4 +1,4 @@
-name: xview_frxnn_search
+name: xview_frcnn_search
 workspace: <WORKSPACE_NAME>
 project: <PROJECT_NAME>
 # workspace: Andrew

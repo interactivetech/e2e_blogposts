@@ -8,7 +8,6 @@ __pycache__/
 example_img.json
 # Misc
 *.tif
-*.png
 *.jpg
 *.pth
 *.geojson

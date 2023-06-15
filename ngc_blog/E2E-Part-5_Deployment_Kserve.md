@@ -245,18 +245,10 @@ spec:
 
 To create the Pod, run the command: `kubectl apply -f kserve_utils/k8s_files/torch-kserve-pvc.yaml`
 
-#### - After running the previous command `kubectl get inferenceservice`, you should see that the inferenceservice is not loaded yet
-<img src="img_content/inf_service_not_loaded.png" width="800" />
-
-#### - Keep running the command every minute until you see the InferenceService loaded (view screenshot below of example)
-<img src="img_content/inf_service_loaded.png" width="800" />
-
-#### - Next, run command `kubectl get pods` to get underlying pod that is running inference service. Copy the pod name (example seen in screenshot)
-<img src="img_content/get_pod_name.png" width="800" />
-
-#### - Finally run command: `kubectl logs -f <POD_NAME>` to see the logs and if the model was successfully loaded. 
-
-<img src="img_content/check_logs.png" width="800" />
+* After running the previous command `kubectl get inferenceservice`, you should see that the inferenceservice is not loaded yet
+* Keep running the command every minute until you see the InferenceService loaded (view screenshot below of example)
+* Next, run command `kubectl get pods` to get underlying pod that is running inference service. Copy the pod name (example seen in screenshot)
+* Finally run command: `kubectl logs -f <POD_NAME>` to see the logs and if the model was successfully loaded. 
 
 
 # Complete a sample request and plot predictions

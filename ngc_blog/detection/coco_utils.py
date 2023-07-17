@@ -247,12 +247,18 @@ class CocoDetection(torchvision.datasets.CocoDetection):
 
 def get_coco(root, image_set, transforms, mode='instances'):
     anno_file_template = "{}_{}2017.json"
+    # PATHS = {
+    #     "train": ("train_images_rgb_no_neg/train_images_300_02", 'train_images_rgb_no_neg/train_300_02.json'),
+    #     "val": ("val_images_rgb_no_neg/val_images_300_02", 'val_images_rgb_no_neg/val_300_02.json'),
+    #     # "train": ("val2017", os.path.join("annotations", anno_file_template.format(mode, "val")))
+    # }
+    # (Andrew 7.13.2023): Uncomment below to train filtered xview_dataset
+    # This is a dataset that only detects Fixed Aircraft, and Cargo Plane
     PATHS = {
-        "train": ("train_images_rgb_no_neg/train_images_300_02", 'train_images_rgb_no_neg/train_300_02.json'),
-        "val": ("val_images_rgb_no_neg/val_images_300_02", 'val_images_rgb_no_neg/val_300_02.json'),
+        "train": ("train_images_rgb_no_neg/train_images_640_02", 'train_images_rgb_no_neg/train_640_02_filtered.json'),
+        "val": ("val_images_rgb_no_neg/val_images_640_02", 'val_images_rgb_no_neg/val_640_02_filtered.json'),
         # "train": ("val2017", os.path.join("annotations", anno_file_template.format(mode, "val")))
     }
-
     t = [ConvertCocoPolysToMask()]
 
     if transforms is not None:

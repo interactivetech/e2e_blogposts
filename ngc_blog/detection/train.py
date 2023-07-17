@@ -37,9 +37,13 @@ import utils
 
 
 def get_dataset(name, image_set, transform, data_path):
+    # paths = {
+    #     "coco": (data_path, get_coco, 91),
+    #     "coco_xview": (data_path, get_coco, -1),
+    #     "coco_kp": (data_path, get_coco_kp, 2)
+    # }
     paths = {
-        "coco": (data_path, get_coco, 91),
-        "coco_xview": (data_path, get_coco, -1),
+        "coco": (data_path, get_coco, -1),
         "coco_kp": (data_path, get_coco_kp, 2)
     }
     p, ds_fn, num_classes = paths[name]
@@ -205,6 +209,7 @@ def main(args):
 
     print("Start training")
     start_time = time.time()
+    assert args.start_epoch < args.epochs, f"Assertion failed: args.start_epoch={args.start_epoch}, args.epochs={args.epochs}"
     for epoch in range(args.start_epoch, args.epochs):
         if args.distributed:
             train_sampler.set_epoch(epoch)

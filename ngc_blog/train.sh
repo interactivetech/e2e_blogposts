@@ -1,0 +1,1 @@
+python detection/train.py    --dataset coco --data-path=xview_dataset/ --model fasterrcnn_resnet50_fpn --epochs 480 --resume model_239.pth  --lr-steps 16 22 --aspect-ratio-group-factor 3 --batch-size 16 --lr 0.02 --print-freq 1
